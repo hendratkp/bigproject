@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <style>
+            .green-box {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 90%;
+            }
+            
+            .green-box td, .green-box th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            
+            .green-box tr:nth-child(even){background-color: #f2f2f2;}
+            
+            .green-box tr:hover {background-color: #ddd;}
+            
+            .green-box th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+            </style>
+    </head>
+    <body>
+        <title>{{.PageTitle}}</title>
+
+        <a href="/user"><h3>User</h3></a>
+
+        <form action="filter">
+            <label> Search : <input type="text" name="keyword" value="{{.Keyword}}"> </label>
+        </form> 
+        <br>
+        
+        <table class="green-box">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>MSIDN</th>
+                <th>Email</th>
+                <th>Birth Date</th>
+                <th>Create Time</th>
+                <th>Update Time</th>
+            </thead>
+            {{range .User}}
+            <tr>
+                <td>{{.User_id}}</td>
+                <td>{{.User_name}}</td>
+                <td>{{.Msisdn}}</td>
+                <td>{{.User_email}}</td>
+                <td>{{.Birth_date.Time}}</td>
+                <td>{{.Create_time.Time}}</td>
+                <td>{{.Update_time.Time}}</td>
+            </tr>
+            {{end}}
+        </table>
+
+        <br>
+        <span> Total Count : {{.AccessTime}} </span>
+    </body>
+</html>

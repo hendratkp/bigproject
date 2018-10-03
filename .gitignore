@@ -1,0 +1,9 @@
+\vendor
+
+test.out
+
+.vscode/*
+debug
+vscode/
+
+*.cache
